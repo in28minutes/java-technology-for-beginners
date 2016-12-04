@@ -25,6 +25,9 @@ If you have a great video for one of these topics, which does not have a video a
  	- JUnit
  	- Mockito
  	- EasyMock
+ 	- PowerMock
+ 	- Cobertura
+ 	- Emma
  - Database
  	- Hibernate
  	- iBatis
@@ -38,6 +41,7 @@ If you have a great video for one of these topics, which does not have a video a
  	- Guice
  	- EhCache
  	- Drools
+ 	- Apache Commons
 - JavaScript
  - NodeJS
  - JQuery
@@ -50,6 +54,7 @@ If you have a great video for one of these topics, which does not have a video a
  - Bootstrap
 - Formats
  - XML
+ - XPath
  - JSON
  - SOAP
  - Swagger
@@ -61,6 +66,9 @@ If you have a great video for one of these topics, which does not have a video a
 - JDK
 - JVM
 - JRE
+- JAR
+- WAR
+- EAR
 - Classloader
 - Annotations
 - Platform Independence
@@ -76,6 +84,8 @@ If you have a great video for one of these topics, which does not have a video a
  - Polymorphism
  - Abstraction
 - Mocking and Mock objects
+- Dependency Management
+- Readable Code
 - Dependency Injection
 - Inversion of Control
 - Synchronization
@@ -96,6 +106,7 @@ If you have a great video for one of these topics, which does not have a video a
 - Pair Programming
 - Unit Testing
 - Automation Testing
+- Load Testing
 - User Acceptance Testing (UAT)
 - Test Driven Development (TDD)
 - Behavior Driven Development (BDD)
@@ -149,6 +160,8 @@ If you have a great video for one of these topics, which does not have a video a
 - JSTL
 - JPA
 - JAX-RS
+- JAX-WS
+- JAXB
 - JMS
 
 ## Design
@@ -188,6 +201,7 @@ If you have a great video for one of these topics, which does not have a video a
  - Ant
  - Maven
  - Gradle
+ - Nexus
 - Message Brokers
  - Kafka
 - Performance
@@ -215,7 +229,8 @@ If you have a great video for one of these topics, which does not have a video a
 - DevOps
  - Chef
 - CMS
-
+- Load Testing
+ - JMeter
 ## Processes
 - Scrum
 - Agile
