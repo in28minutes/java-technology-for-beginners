@@ -1,2 +1,3 @@
 # java-technology-for-beginners
 In my 15 years of designing and developing more than 100 java web applications, there are a number of terminologies, standards, frameworks, tools that I have used. I know how difficult it is for a beginner to understand them. And the business guys! So, this guide is to demystify these terms! Enough talk. Let's Rock and Roll......
+dummy edit
