@@ -240,11 +240,13 @@ If you have a great video for one of these topics, which does not have a video a
 
 ## Details
 ###Spring
+
 ####What
 - http://spring.io/
 - Dependency Management
 - Inversion of Control
 - Application Context
+
 ####Why
 - Loose Coupling
 - Testable Code
@@ -253,22 +255,27 @@ If you have a great video for one of these topics, which does not have a video a
 - Architectural Flexibility
  - Integration with other frameworks
 - Design Patterns
+
 ####How
 - Add a Maven Dependency
+
 ####Best Practices
 - Use BOM
 - Use Maven or Gradle
 - Write Unit Tests
 - Try Spring Boot
+
 ####Challenges
 - Difficult for Starting Programmer to understand 
 - Once You understand, you cannot stop using it!
+
 ####What Else?
 - Spring Modules https://github.com/in28minutes/SpringIn28Minutes/blob/master/Spring%20Tutorial%20For%20Beginners%20with%20Examples_v2.pdf
 - Spring Projects http://spring.io/projects
 - Spring Initializr https://start.spring.io
-####Tips
+
 ####Course
+https://www.udemy.com/spring-tutorial-for-beginners/
 
 ###Topic
 ####What
