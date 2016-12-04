@@ -8,27 +8,27 @@ If you have a great video for one of these which do not have a video attached, s
 ## Languages/Frameworks/Data Formats
 - Java
  - Spring
-  - Spring Boot
-  - Spring MVC
-  - Spring Data
-  - Spring Data Flow
-  - Spring Data Rest
-  - Spring Cloud
-  - Spring Batch
-  - Spring Initializr
-  - Spring Security
-  - Spring HATEOAS
-  - Spring Integration
+ 	- Spring Boot
+ 	- Spring MVC
+ 	- Spring Data
+ 	- Spring Data Flow
+ 	- Spring Data Rest
+ 	- Spring Cloud
+ 	- Spring Batch
+ 	- Spring Initializr
+ 	- Spring Security
+ 	- Spring HATEOAS
+ 	- Spring Integration
  - JUnit
+ - Mockito
  - Hibernate
+ - iBatis
  - Jersey Framework
  - Play Framework
  - Quartz
- - iBatis
  - Guava
  - Guice
  - EhCache
- - Mockito
  - EasyMock
  - Drools
 - JavaScript
@@ -134,8 +134,8 @@ If you have a great video for one of these which do not have a video attached, s
  - Maintainability
  - Portability
  - Security
-  - Cross Site Scripting (XSS)
-  - SQL Injection
+ 	- Cross Site Scripting (XSS)
+ 	- SQL Injection
 - Containerization
 
 ## Java EE
@@ -143,10 +143,6 @@ If you have a great video for one of these which do not have a video attached, s
 - JPA
 - JAX-RS
 - JMS
-
-## Spring
-
-## Architecture
 
 ## Design
 - Design Patterns
@@ -176,12 +172,11 @@ If you have a great video for one of these which do not have a video attached, s
  - Hazelcast
 - Databases
  - In memory
-  - H2
-  - HSQL
+ 	- H2
+ 	- HSQL
  - Big Data
-  - Mongo DB
+ 	- Mongo DB
  - Redis
-- In Memory Databases
 - Build
  - Ant
  - Maven
