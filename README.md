@@ -231,8 +231,34 @@ If you have a great video for one of these topics, which does not have a video a
 - CMS
 - Load Testing
  - JMeter
+
 ## Processes
 - Scrum
 - Agile
 - Kanban
 - Waterfall
+
+## Details
+###Spring
+####What
+####Why
+####How
+####When
+####Where
+####Best Practices
+####Challenges
+####What Else?
+####Tips
+####Perspectives
+#####Code
+#####Test
+#####Design
+#####Architecture
+#####Management
+#####Deployment
+#####Operations
+#####Performance
+#####Scalability
+#####Maintainability
+#####Availability
+#####Security
