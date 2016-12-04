@@ -241,6 +241,8 @@ If you have a great video for one of these topics, which does not have a video a
 ## Details
 ###Spring
 
+#### Video
+
 ####What
 - http://spring.io/
 - Dependency Management
@@ -277,7 +279,86 @@ If you have a great video for one of these topics, which does not have a video a
 ####Course
 https://www.udemy.com/spring-tutorial-for-beginners/
 
+###Spring Boot
+####Video
+
+####What
+- How long does it take to start a new project?
+- What do you do in Spring 0?
+- Integrating Frameworks may be complex!
+- All other stuff
+ - Configuration Management
+ - Logging
+ - Transaction Management
+ - Error/ Exception Handling
+ - Monitoring & Health Checks
+ - Integrate Unit Testing and Mocking Frameworks
+- Migrating to different version is tough
+ - Incompatible Jars - Jar Hell
+ - Which version of other frameworks (Hibernate etc..) to upgrade to?
+
+####Why
+- Reduce start up time of a project
+- Microservice Architecture!
+ - No of small projects increase exponentially
+- Starter Projects make integration with other frameworks easy
+- Developer Tools
+ 
+####How
+- Spring Initializr https://start.spring.io
+
+####Challenges
+- You need to understand Spring to solve problems
+- Standardize a little before you use Spring Boot in all your microservices
+- Make sure to put right security around Actuator
+
+#####Deployment & Scalability
+- Can be deployed to Cloud Services easily.
+
+####Course
+
+###Spring MVC
+####Video
+https://www.youtube.com/watch?v=BjNhGaZDr0Y
+####What
+- Great MVC & Rest Services Framework
+- Loosely Coupled Design
+- Support for multiple view technologies
+- Integrates well with all popular frameworks
+####Course
+ADD_LATER
+
+###Spring Data Rest
+####Video
+
+####What
+- Expose Services from your Data without a lot of code
+####Why
+####How
+####When
+####Where
+####Best Practices
+####Challenges
+####What Else?
+####Tips
+####Perspectives
+#####Code
+#####Test
+#####Design
+#####Architecture
+#####Management
+#####Deployment
+#####Operations
+#####Performance
+#####Scalability
+#####Maintainability
+#####Availability
+#####Security
+####Course
+
+
 ###Topic
+####Video
 ####What
 ####Why
 ####How
@@ -301,3 +382,4 @@ https://www.udemy.com/spring-tutorial-for-beginners/
 #####Availability
 #####Security
 ####Course
+
