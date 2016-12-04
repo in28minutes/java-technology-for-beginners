@@ -1,9 +1,11 @@
 # java-technology-for-beginners
-In my 15 years of designing and developing more than 100 java web applications, I have learnt that we techies love coining new terminologies. They are great as I dont need to explain them each time but imagine the state of a beginning programmer or a tester or Business Analyst or your Product Owner. They hardly understand them. This guide is to demystify these terms creating videos! 
+In my 15 years of designing and developing more than 100 java web applications, I have learnt that techies love coining new terminologies. They are great as we don't need to explain each time but imagine the state of a beginning programmer or a non techie - a Tester or Business Analyst or your Product Owner. They hardly understand them. This guide is to demystify these terms through videos! 
 
 As I find time, I will create more videos. Request some patience :) 
 
-If you have a great video for one of these which do not have a video attached, submit a pull request!
+If you think, I'm missing an important topic, shoot an email or create a pull request!
+
+If you have a great video for one of these topics, which does not have a video attached, submit a pull request!
 
 ## Languages/Frameworks/Data Formats
 - Java
@@ -19,18 +21,23 @@ If you have a great video for one of these which do not have a video attached, s
  	- Spring Security
  	- Spring HATEOAS
  	- Spring Integration
- - JUnit
- - Mockito
- - Hibernate
- - iBatis
- - Jersey Framework
- - Play Framework
- - Quartz
- - Guava
- - Guice
- - EhCache
- - EasyMock
- - Drools
+ - Unit Testing 
+ 	- JUnit
+ 	- Mockito
+ 	- EasyMock
+ - Database
+ 	- Hibernate
+ 	- iBatis
+ - Rest Services
+ 	- Jersey Framework
+ 	- Play Framework
+ 	- Spring REST (actually Spring MVC)
+ - Others 
+ 	- Quartz
+ 	- Guava
+ 	- Guice
+ 	- EhCache
+ 	- Drools
 - JavaScript
  - NodeJS
  - JQuery
@@ -68,13 +75,13 @@ If you have a great video for one of these which do not have a video attached, s
  - Encapsulation
  - Polymorphism
  - Abstraction
+- Mocking and Mock objects
 - Dependency Injection
 - Inversion of Control
-- Exception Handling
 - Synchronization
 - Logging
-- Mocking and Mock objects
 - Caching
+- Exception Handling
 - Cross Cutting Concerns
 - Aspect Oriented Programming (AOP)
 - Spring
@@ -83,19 +90,19 @@ If you have a great video for one of these which do not have a video attached, s
  - Application Context
 
 ## Practices
-- Continuous Integration (CI)
-- Continuous Delivery (CD)
-- Test Driven Development (TDD)
-- Behavior Driven Development (BDD)
-- Acceptance Test Driven Development (ATDD)
-- DevOps
-- Pair Programming
+- Coding Standards
 - Code Review
 - Refactoring
-- Coding Standards
+- Pair Programming
 - Unit Testing
 - Automation Testing
 - User Acceptance Testing (UAT)
+- Test Driven Development (TDD)
+- Behavior Driven Development (BDD)
+- Acceptance Test Driven Development (ATDD)
+- Continuous Integration (CI)
+- Continuous Delivery (CD)
+- DevOps
 
 ## Terminologies
 - Cloud
@@ -108,21 +115,21 @@ If you have a great video for one of these which do not have a video attached, s
 - Functional Programming
 - Reactive Programming
 - In memory Database
-- Legacy Code
-- Code First
-- Contract First
-- Tech Design
-- Technical Debt
 - SPA (Single Page Application)
 - Code Quality
-- Evolutionary Design
+- Technical Debt
 - Code Coverage
+- Legacy Code
+- Tech Design
+- Evolutionary Design
+- Code First
+- Contract First
 - Web Service
 - RESTful Web Service
 - Static Code Analysis (Security)
 - Vertical Slice
-- Transaction Management
 - Internationalization or Localization
+- Transaction Management
 - NFR (Non Functional Requirements)
  - Authentication 
  - Authorization
