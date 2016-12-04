@@ -163,7 +163,7 @@ If you have a great video for one of these topics, which does not have a video a
  - NetBeans
  - Intellij
 - Code Quality
- - SONAR
+ - SonarQube
  - CheckStyle
  - PMD
  - Findbugs
