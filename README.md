@@ -176,7 +176,7 @@ If you have a great video for one of these topics, which does not have a video a
  - NetBeans
  - Intellij
 - Code Quality
- - SONAR
+ - SonarQube
  - CheckStyle
  - PMD
  - Findbugs
@@ -233,8 +233,8 @@ If you have a great video for one of these topics, which does not have a video a
  - JMeter
 
 ## Processes
-- Scrum
 - Agile
+ - Scrum
 - Kanban
 - Waterfall
 
@@ -282,7 +282,7 @@ https://www.udemy.com/spring-tutorial-for-beginners/
 ###Spring Boot
 ####Video
 
-####What
+####What http://projects.spring.io/spring-boot/
 - How long does it take to start a new project?
 - What do you do in Spring 0?
 - Integrating Frameworks may be complex!
@@ -382,4 +382,3 @@ ADD_LATER
 #####Availability
 #####Security
 ####Course
-
