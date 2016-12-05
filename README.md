@@ -340,6 +340,7 @@ COMING SOON.. Fingers crossed
 - Can be deployed to Cloud Services easily.
 
 ####Course
+ADD_LATER
 
 ###Spring MVC
 
@@ -356,16 +357,266 @@ https://www.youtube.com/watch?v=BjNhGaZDr0Y
 ADD_LATER
 
 ###Spring Data Rest
+Spring Data REST is part of the umbrella Spring Data project and makes it easy to build hypermedia-driven REST web services on top of Spring Data repositories. http://projects.spring.io/spring-data-rest/
+org.springframework.boot:spring-boot-starter-data-rest
+
 ####Video
+COMING SOON
 
 ####What
 - Expose Services from your Data without a lot of code
+- Supports SQL based and No SQL based databases
+- Pagination
+- Filtering
+- Sorting
+- HATEOAS
+- defaultPageSize
 ####Why
 ####How
 ####When
 ####Where
 ####Best Practices
 ####Challenges
+
+####Example Code
+\pom.xml
+```
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.in28minutes</groupId>
+	<artifactId>spring-data-rest-example</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.2.RELEASE</version>
+	</parent>
+
+	<properties>
+		<java.version>1.7</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
+```
+\src\main\java\com\in28minutes\Application.java
+```
+package com.in28minutes;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}
+```
+\src\main\java\com\in28minutes\data\Todo.java
+```
+package com.in28minutes.data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Todo {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
+	private String user;
+
+	private String desc;
+
+	private boolean isDone;
+
+	public long getId() {
+		return id;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public boolean isDone() {
+		return isDone;
+	}
+
+	public void setDone(boolean isDone) {
+		this.isDone = isDone;
+	}
+
+	@Override
+	public String toString() {
+		return String.format(
+				"Todo [id=%s, user=%s, desc=%s, isDone=%s]",
+				id, user, desc, isDone);
+	}
+
+}
+```
+\src\main\java\com\in28minutes\data\TodoRepository.java
+```
+package com.in28minutes.data;
+
+import java.util.List;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource(collectionResourceRel = "todos", path = "todos")
+public interface TodoRepository
+		extends PagingAndSortingRepository<Todo, Long> {
+
+	List<Todo> findByUser(@Param("user") String user);
+
+}
+```
+
+
+#### Example Execution
+```
+POST to http://localhost:8080/todos
+Use Header => Content-Type:application/json
+Request:
+
+{
+  "user": "Jill",
+  "desc": "Learn Hibernate",
+  "done": false
+}
+
+Response:
+
+{
+  "user": "Jill",
+  "desc": "Learn Hibernate",
+  "done": false,
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/todos/1"
+    },
+    "todo": {
+      "href": "http://localhost:8080/todos/1"
+    }
+  }
+}
+```
+http://localhost:8080/todos
+```
+{
+  "_embedded" : {
+    "todos" : [ {
+      "user" : "Jill",
+      "desc" : "Learn Hibernate",
+      "done" : false,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/todos/1"
+        },
+        "todo" : {
+          "href" : "http://localhost:8080/todos/1"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/todos"
+    },
+    "profile" : {
+      "href" : "http://localhost:8080/profile/todos"
+    },
+    "search" : {
+      "href" : "http://localhost:8080/todos/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
+```
+http://localhost:8080/todos/1
+```
+{
+  "user" : "Jill",
+  "desc" : "Learn Hibernate",
+  "done" : false,
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/todos/1"
+    },
+    "todo" : {
+      "href" : "http://localhost:8080/todos/1"
+    }
+  }
+}
+```
+- http://localhost:8080/todos?user=Jill
+- http://localhost:8080/todos/search/findByUser?user=Jill
+
+
 ####What Else?
 ####Tips
 ####Perspectives
@@ -394,118 +645,6 @@ ADD_LATER
 ####Best Practices
 ####Challenges
 ####Example
-####What Else?
-####Tips
-####Perspectives
-#####Code
-#####Test
-#####Design
-#####Architecture
-#####Management
-#####Deployment
-#####Operations
-#####Performance
-#####Scalability
-#####Maintainability
-#####Availability
-#####Security
-####Course
-
-####What Else?
-- Spring Modules https://github.com/in28minutes/SpringIn28Minutes/blob/master/Spring%20Tutorial%20For%20Beginners%20with%20Examples_v2.pdf
-- Spring Projects http://spring.io/projects
-- Spring Initializr https://start.spring.io
-
-####Course
-https://www.udemy.com/spring-tutorial-for-beginners/
-
-###Spring Boot
-####Video
-
-####What http://projects.spring.io/spring-boot/
-- How long does it take to start a new project?
-- What do you do in Spring 0?
-- Integrating Frameworks may be complex!
-- All other stuff
- - Configuration Management
- - Logging
- - Transaction Management
- - Error/ Exception Handling
- - Monitoring & Health Checks
- - Integrate Unit Testing and Mocking Frameworks
-- Migrating to different version is tough
- - Incompatible Jars - Jar Hell
- - Which version of other frameworks (Hibernate etc..) to upgrade to?
-
-####Why
-- Reduce start up time of a project
-- Microservice Architecture!
- - No of small projects increase exponentially
-- Starter Projects make integration with other frameworks easy
-- Developer Tools
- 
-####How
-- Spring Initializr https://start.spring.io
-
-####Challenges
-- You need to understand Spring to solve problems
-- Standardize a little before you use Spring Boot in all your microservices
-- Make sure to put right security around Actuator
-
-#####Deployment & Scalability
-- Can be deployed to Cloud Services easily.
-
-####Course
-
-###Spring MVC
-####Video
-https://www.youtube.com/watch?v=BjNhGaZDr0Y
-####What
-- Great MVC & Rest Services Framework
-- Loosely Coupled Design
-- Support for multiple view technologies
-- Integrates well with all popular frameworks
-####Course
-ADD_LATER
-
-###Spring Data Rest
-####Video
-
-####What
-- Expose Services from your Data without a lot of code
-####Why
-####How
-####When
-####Where
-####Best Practices
-####Challenges
-####What Else?
-####Tips
-####Perspectives
-#####Code
-#####Test
-#####Design
-#####Architecture
-#####Management
-#####Deployment
-#####Operations
-#####Performance
-#####Scalability
-#####Maintainability
-#####Availability
-#####Security
-####Course
-
-
-###Topic
-####Video
-####What
-####Why
-####How
-####When
-####Where
-####Best Practices
-####Challenges
 ####What Else?
 ####Tips
 ####Perspectives
