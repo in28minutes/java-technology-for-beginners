@@ -242,21 +242,30 @@ If you have a great video for one of these topics, which does not have a video a
 - Waterfall
 
 ## Details
+
 ###Spring
+The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications. Spring handles the infrastructure so you can focus on your application.
+http://docs.spring.io/spring/docs/current/spring-framework-reference/html/overview.html
 
 #### Video
+COMING SOON..
 
 ####What
-- http://spring.io/
-- Dependency Management
+- Lets Programmers focus on Business Logic
+- Key feature is Dependency Management
+ - Enables Testability
 - Inversion of Control
 - Application Context
 
 ####Why
-- Loose Coupling
-- Testable Code
+- Why is Unit Testing Important?
+ - Loose Coupling
+ - Testable Code
 - Plumbing Code
+ - JDBC
+ - JMS
 - Clean Architecture
+ - Easy implementation of cross cutting concerns
 - Architectural Flexibility
  - Integration with other frameworks
 - Design Patterns
@@ -265,10 +274,11 @@ If you have a great video for one of these topics, which does not have a video a
 - Add a Maven Dependency
 
 ####Best Practices
+- Use Spring Initializr
+- Consider Spring Boot
+- Write Unit Tests
 - Use BOM
 - Use Maven or Gradle
-- Write Unit Tests
-- Try Spring Boot
 
 ####Challenges
 - Difficult for Starting Programmer to understand 
@@ -283,29 +293,43 @@ If you have a great video for one of these topics, which does not have a video a
 https://www.udemy.com/spring-tutorial-for-beginners/
 
 ###Spring Boot
-####Video
+Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run". We take an opinionated view of the Spring platform and third-party libraries so you can get started with minimum fuss. Most Spring Boot applications need very little Spring configuration.
+http://projects.spring.io/spring-boot/
 
-####What http://projects.spring.io/spring-boot/
-- How long does it take to start a new project?
-- What do you do in Spring 0?
-- Integrating Frameworks may be complex!
-- All other stuff
+####Video
+COMING SOON.. Fingers crossed
+
+####What 
+
+- Reduces effort in starting up a project
+ - How long does it take to start a new project?
+ - What do you do in Sprint 0?
+ - Integrating Frameworks may be complex!
  - Configuration Management
  - Logging
  - Transaction Management
  - Error/ Exception Handling
  - Monitoring & Health Checks
  - Integrate Unit Testing and Mocking Frameworks
-- Migrating to different version is tough
- - Incompatible Jars - Jar Hell
- - Which version of other frameworks (Hibernate etc..) to upgrade to?
+ - Migrating to different version is tough
+  - Incompatible Jars - Jar Hell
+  - Which version of other frameworks (Hibernate etc..) to upgrade to?
 
 ####Why
 - Reduce start up time of a project
 - Microservice Architecture!
  - No of small projects increase exponentially
 - Starter Projects make integration with other frameworks easy
+ - spring-boot-starter-web-services - Starter for using Spring Web Services
+ - spring-boot-starter-web - Starter for building web, including RESTful, applications using Spring MVC. Uses Tomcat as the default embedded container
+ - spring-boot-starter-test - Starter for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito
+ - spring-boot-starter-hateoas - Starter for building hypermedia-based RESTful web application with Spring MVC and Spring HATEOAS
+ - spring-boot-starter-jersey - Starter for building RESTful web applications using JAX-RS and Jersey. An alternative to spring-boot-starter-web
+ - spring-boot-starter-security - Starter for using Spring Security
+ - spring-boot-starter-data-jpa - Starter for using Spring Data JPA with Hibernate
+ - spring-boot-starter-data-rest - Starter for exposing Spring Data repositories over REST using Spring Data REST
 - Developer Tools
+ - Easy to debug and hot deploy!
  
 ####How
 - Spring Initializr https://start.spring.io
@@ -319,29 +343,573 @@ https://www.udemy.com/spring-tutorial-for-beginners/
 - Can be deployed to Cloud Services easily.
 
 ####Course
+ADD_LATER
 
 ###Spring MVC
+
 ####Video
 https://www.youtube.com/watch?v=BjNhGaZDr0Y
+
 ####What
 - Great MVC & Rest Services Framework
 - Loosely Coupled Design
 - Support for multiple view technologies
 - Integrates well with all popular frameworks
+
 ####Course
 ADD_LATER
 
 ###Spring Data Rest
+Spring Data REST is part of the umbrella Spring Data project and makes it easy to build hypermedia-driven REST web services on top of Spring Data repositories. http://projects.spring.io/spring-data-rest/
+org.springframework.boot:spring-boot-starter-data-rest
+
 ####Video
+COMING SOON
 
 ####What
 - Expose Services from your Data without a lot of code
+- Supports SQL based and No SQL based databases
+- Pagination
+- Filtering
+- Sorting
+- HATEOAS
+- defaultPageSize
+
+####Why
+- Simple Projects want to quickly expose Rest Services
+
+####How
+- Simplest way is to use the Spring Boot Starter Project
+
+####Challenges
+- Not recommended for Complex Applications 
+
+####Example Code
+\pom.xml
+```
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.in28minutes</groupId>
+	<artifactId>spring-data-rest-example</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.2.RELEASE</version>
+	</parent>
+
+	<properties>
+		<java.version>1.7</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
+```
+\src\main\java\com\in28minutes\Application.java
+```
+package com.in28minutes;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}
+```
+\src\main\java\com\in28minutes\data\Todo.java
+```
+package com.in28minutes.data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Todo {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
+	private String user;
+
+	private String desc;
+
+	private boolean isDone;
+
+	public long getId() {
+		return id;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public boolean isDone() {
+		return isDone;
+	}
+
+	public void setDone(boolean isDone) {
+		this.isDone = isDone;
+	}
+
+	@Override
+	public String toString() {
+		return String.format(
+				"Todo [id=%s, user=%s, desc=%s, isDone=%s]",
+				id, user, desc, isDone);
+	}
+
+}
+```
+\src\main\java\com\in28minutes\data\TodoRepository.java
+```
+package com.in28minutes.data;
+
+import java.util.List;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource(collectionResourceRel = "todos", path = "todos")
+public interface TodoRepository
+		extends PagingAndSortingRepository<Todo, Long> {
+
+	List<Todo> findByUser(@Param("user") String user);
+
+}
+```
+
+
+#### Example Execution
+```
+POST to http://localhost:8080/todos
+Use Header => Content-Type:application/json
+Request:
+
+{
+  "user": "Jill",
+  "desc": "Learn Hibernate",
+  "done": false
+}
+
+Response:
+
+{
+  "user": "Jill",
+  "desc": "Learn Hibernate",
+  "done": false,
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/todos/1"
+    },
+    "todo": {
+      "href": "http://localhost:8080/todos/1"
+    }
+  }
+}
+```
+http://localhost:8080/todos
+```
+{
+  "_embedded" : {
+    "todos" : [ {
+      "user" : "Jill",
+      "desc" : "Learn Hibernate",
+      "done" : false,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/todos/1"
+        },
+        "todo" : {
+          "href" : "http://localhost:8080/todos/1"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/todos"
+    },
+    "profile" : {
+      "href" : "http://localhost:8080/profile/todos"
+    },
+    "search" : {
+      "href" : "http://localhost:8080/todos/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
+```
+http://localhost:8080/todos/1
+```
+{
+  "user" : "Jill",
+  "desc" : "Learn Hibernate",
+  "done" : false,
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/todos/1"
+    },
+    "todo" : {
+      "href" : "http://localhost:8080/todos/1"
+    }
+  }
+}
+```
+- http://localhost:8080/todos?user=Jill
+- http://localhost:8080/todos/search/findByUser?user=Jill
+
+###Spring Cloud
+Spring Cloud provides tools for developers to quickly build some of the common patterns in distributed systems http://projects.spring.io/spring-cloud/ 
+
+####Video
+COMING SOON
+
+####What
+- What is Cloud?
+- Why Cloud?
+- Features of Spring Cloud
+ - Configuration management 
+ - Service discovery
+ - Circuit breakers
+ - API Gateway
+ - Routing
+
+Projects
+- Spring Cloud Config 
+- Spring Cloud Netflix : Integrates with Netflix OSS components (Eureka, Hystrix, Zuul...)
+- Spring Cloud Security : OAuth2 rest client support.
+- Spring Cloud Data Flow : Orchestration service for microservice. Create microservice based data pipelines using
+ - DSL
+ - Drag-and-drop GUI
+ - REST-APIs 
+
+####Why
+- Cloud Native Applications vs Micro Services
+ - Dynamic deployment to cloud needs a lot of automation
+ 
+####How
+- Spring Boot Starter Project
+
+####Challenges
+- Its still a young evolving set of projects. Experience of Netflix is surely a good thing.
+
+###Spring Batch
+A lightweight, comprehensive batch framework designed to enable the development of robust batch applications vital for the daily operations of enterprise systems. 
+http://projects.spring.io/spring-batch/
+
+####Video
+Coming Soon
+
+####Why
+- Restartability : Easy to restart a batch program from where it failed
+- Different Readers and Writers : Provides great support to read from JMS, JDBC, Hibernate, iBatis etc. It can write to JMS, JDBC, Hibernate and more.
+- Chunk Processing : If we have 1 Million records to process, these can be processed in configurable chunks (1000 at a time or 10000 at a time).
+- Easy to implement proper transaction management even when using chunk processing.
+- Easy to implement parallel processing. With simple configuration, different steps can be run in parallel.
+
+####What
+A Job in Spring Batch is a sequence of Steps. Each Step can be configured with
+- next : next step to execute
+- tasklet : task or chunk to execute. A chunk can be configured with a Item Reader, Item Processor and Item Writer.
+- decision : Decide which steps need to executed.
+
+A Job Launcher can be used to execute a Spring Batch Job. A job can be launched/scheduled in a web container as well.
+- Each execution of a job is called a Job Instance. Each Job Instance is provided with an execution id which can be used to restart the job (if needed).
+- Job can be configured with parameters which can be passed to it from the Job Launcher.
+
+####How
+```
+<job id="job1">
+    <split id="split1" task-executor="taskExecutor" next="step4">
+        <flow>
+            <step id="step1" parent="s1" next="step2"/>
+            <step id="step2" parent="s2"/>
+        </flow>
+        <flow>
+            <step id="step3" parent="s3"/>
+        </flow>
+    </split>
+    <step id="step4" parent="s4"/>
+</job>
+```
+
+####When
+For Batch Programs
+
+####Best Practices
+- Be careful about Exception Handling and Transaction Management
+- Be as near to data as possible
+- Allocate enough memory
+- Stress test from the start of the project. Identify production data volumes and evolve the application to meet those needs.
+
+####What Else?
+Spring Batch 3.0 supports JSR-352 -java specification for batch processing
+
+###Spring Initializr
+Quick Start for Spring Projects. http://start.spring.io/
+
+####Video
+Coming Soon....
+
+####What
+- Choose Maven or Gradle
+- Choose Version of Spring Boot
+- Add all the stuff you want!
+- Download the project
+- Run... Thats it!!!
+
+####Why
+- Awesome and Simple way to create Spring Boot Projects
+- Supports more than 50 different frameworks
+
+####How
+- Lets do a quick demo!
+
+####When
+- Start of a project or when you want to do a quick prototype
+
+###Spring Security
+Authentication and Authorization framework. (What is Authentication?) http://projects.spring.io/spring-security/ 
+
+####Video
+Coming Soon..
+
+####What
+- Great support for authentication and authorization
+- Provides out of the box support to prevent session fixation, clickjacking and XSS 
+
+####Why
+- Integrates well with Spring and Spring Boot Projects
+- Proven Framework. You do not want to play with Authentication and Authorization.
+- Great Integration with wide range of technologies
+ - HTTP BASIC authentication headers
+ - HTTP X.509 client certificate exchange
+ - LDAP
+ - Form based
+ - JAAS
+
+####How
+- org.springframework.security:spring-security-web
+- Or use the spring security starter project!
+
+####Demo
+Lets do a quick demo...
+
+###Spring HATEOAS
+Spring support for HATEOAS (Hypermedia as Representation of Application State) http://projects.spring.io/spring-hateoas/
+
+####Video
+
+####What
+- Create services that include HATEOAS links in the response..
+- Create clients for services using HATEOAS
+
 ####Why
 ####How
 ####When
 ####Where
 ####Best Practices
 ####Challenges
+####Example
+####What Else?
+####Tips
+####Perspectives
+#####Code
+#####Test
+#####Design
+#####Architecture
+#####Management
+#####Deployment
+#####Operations
+#####Performance
+#####Scalability
+#####Maintainability
+#####Availability
+#####Security
+####Course
+
+###Topic
+####Video
+####What
+####Why
+####How
+####When
+####Where
+####Best Practices
+####Challenges
+####Example
+####What Else?
+####Tips
+####Perspectives
+#####Code
+#####Test
+#####Design
+#####Architecture
+#####Management
+#####Deployment
+#####Operations
+#####Performance
+#####Scalability
+#####Maintainability
+#####Availability
+#####Security
+####Course
+
+###Topic
+####Video
+####What
+####Why
+####How
+####When
+####Where
+####Best Practices
+####Challenges
+####Example
+####What Else?
+####Tips
+####Perspectives
+#####Code
+#####Test
+#####Design
+#####Architecture
+#####Management
+#####Deployment
+#####Operations
+#####Performance
+#####Scalability
+#####Maintainability
+#####Availability
+#####Security
+####Course
+
+###Topic
+####Video
+####What
+####Why
+####How
+####When
+####Where
+####Best Practices
+####Challenges
+####Example
+####What Else?
+####Tips
+####Perspectives
+#####Code
+#####Test
+#####Design
+#####Architecture
+#####Management
+#####Deployment
+#####Operations
+#####Performance
+#####Scalability
+#####Maintainability
+#####Availability
+#####Security
+####Course
+
+###Topic
+####Video
+####What
+####Why
+####How
+####When
+####Where
+####Best Practices
+####Challenges
+####Example
+####What Else?
+####Tips
+####Perspectives
+#####Code
+#####Test
+#####Design
+#####Architecture
+#####Management
+#####Deployment
+#####Operations
+#####Performance
+#####Scalability
+#####Maintainability
+#####Availability
+#####Security
+####Course
+
+###Topic
+####Video
+####What
+####Why
+####How
+####When
+####Where
+####Best Practices
+####Challenges
+####Example
 ####What Else?
 ####Tips
 ####Perspectives
@@ -360,6 +928,8 @@ ADD_LATER
 ####Course
 
 
+
+Copy Again~~~~~~~~~~~~~~~~~~~~~~
 ###Topic
 ####Video
 Coming Soon
@@ -370,6 +940,7 @@ Coming Soon
 ####Where
 ####Best Practices
 ####Challenges
+####Example
 ####What Else?
 ####How to Learn?
 ####Related Topics
@@ -388,3 +959,4 @@ Coming Soon
 #####Availability
 #####Security
 ####Course
+
