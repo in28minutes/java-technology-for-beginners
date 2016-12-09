@@ -7,6 +7,9 @@ If you think, I'm missing an important topic, shoot an email or create a pull re
 
 If you have a great video for one of these topics, which does not have a video attached, submit a pull request!
 
+## Presentation Template
+- https://app.mindmup.com/map/_free/ff0bce00baa611e6ae8525496545fc76
+
 ## Languages/Frameworks/Data Formats
 - Java
  - Spring
@@ -359,6 +362,7 @@ ADD_LATER
 
 ###Topic
 ####Video
+Coming Soon
 ####What
 ####Why
 ####How
@@ -367,6 +371,8 @@ ADD_LATER
 ####Best Practices
 ####Challenges
 ####What Else?
+####How to Learn?
+####Related Topics
 ####Tips
 ####Perspectives
 #####Code
