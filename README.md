@@ -1,4 +1,4 @@
-# java-technology-for-beginners
+# Java Technology for Beginners
 In my 15 years of designing and developing more than 100 java web applications, I have learnt that techies love coining new terminologies. They are great as we don't need to explain each time but imagine the state of a beginning programmer or a non techie - a Tester or Business Analyst or your Product Owner. They hardly understand them. This guide is to demystify these terms through videos! 
 
 As I find time, I will create more videos. Request some patience :) 
