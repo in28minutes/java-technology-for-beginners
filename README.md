@@ -1354,7 +1354,36 @@ Unit Testing
 Dependency Injection
 In memory databases
 
+###Legacy Code
+Make your choice
+- Old Code!
+- Code without Tests?
+- Code with Lot of Technical Debt?
+- Code with old out of date frameworks and languages?
 
+####Challenges
+- Unexpected impact - Changing one part of application impacts another part
+- Large code bases
+- Large teams
+- Long Release Cycles
+
+####Dealing with Legacy Code
+- Refactor (atleast very important areas)
+- Replace :)
+- Have good code review process
+- Introduce Static Analysis where possible
+- Introduce Unit Testing where possible
+- Measure Technical Debt
+- Have Automated Regression Tests at least
+ - Especially as writing good unit tests might be difficult
+- Develop new functionality outside using new architecture and connect using services
+
+####Related Topics
+- Refactoring
+- Code Quality
+
+###Tech Design
+- Lets not worry about it!
 
 
 
