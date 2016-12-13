@@ -1232,8 +1232,131 @@ Should be driven with an Example!
 ###Reactive Programming
 Should be driven with an Example!
 
-###In Memory Database
-Should be driven with an Example!
+###In memory Database
+- IMDB or MMDB
+- Main memory used as primary storage
+
+####Why?
+- In unit testing scenarios, you do not want to depend on external resources like a database. In memory databases help us to launch a database in memory, populate the data, run the tests and verify the results.
+- Quick Prototyping and Learning
+
+####What?
+- Typically support a subset of the SQL (Structured Query Language) standard.
+- Browser based console
+
+####Examples
+- H2 http://www.h2database.com/html/main.html
+- HSQL
+
+####How to use?
+- Include a jar
+- Point your datasource to the url
+- Database is automatically created
+
+####Demo
+- Quick demo - Spring JDBC Example?
+
+###SPA (Single Page Application)
+- Load one page and dynamically update the page on user actions.
+- Provides user experience similar to a desktop application.
+- Typically use AJAX and HTML5
+- Complete page is never reloaded!
+
+####Demo
+- http://demos.telerik.com/kendo-ui/websushi
+- Gmail, Twitter and Facebook!
+
+####How
+Typical architectures involve 
+- Building REST Services in the background! Java(most popular Spring Boot) or NodeJs
+- Front-ends developed with frameworks like AngularJS, Ember.js, Meteor.js, ExtJS and React 
+
+####Advantages
+- Improved User Experience
+- Reduced load on servers because only parts of page are reloaded
+- Leads to more microservice based architectures!
+
+####Challenges
+- Needs completely different mindset!
+
+####How to Learn?
+- Start developing a quick app with AngularJS with a stubbed/mocked backend!
+
+###Code Quality
+Why duplicate? Reuse existing video?
+
+###Technical Debt
+- Cost of not using the best possible design and standards.
+- Or how much cost is involved in getting to a good design meeting all standards
+- Martin Fowler "extra effort that we have to do in future development because of the quick and dirty design choice"
+- Impossible to measure accurately
+
+####How is it measured?
+- First thing: It cannot be measured perfectly! How do you find the technical debt because of wrong choice of technology, lack of common components, bad variable or method names.
+- SonarQube - http://docs.sonarqube.org/display/SONARQUBE52/Technical+Debt
+ - Measures technical debt against different Non Functional Requirements! Gives a SQALE rating!
+
+####Consequences
+As the application becomes bigger, the productivity of the team goes down. You would notice that the velocity of the team comes down.
+ 
+####How to reduce Technical Debt?
+- Simple Architecture (4 Principles of Simple Design)
+- Continuous Refactoring
+- Good Unit Tests 
+- TDD
+- Static Analysis
+- Good Standards
+- Peer Reviews
+- Fingers crossed (Nobody can predict future architecture and when current architecture becomes obselete)
+- Maintain a Technical Backlog
+- Do a cleanup spring once in a while!
+
+####Challenges?
+- How do you improve a project which already has a large Technical Debt? 
+ - Identify potential areas of improvement 
+ - Identify changes in the next 6 months
+ - Write test for areas which are gonna be changed in the next 6 months
+ - Refactor
+ - Build the test base over a period of time
+ 
+####Best Practices
+- Have Technical Debt as part of Definition of Done
+- Measure Technical Debt from day one of the project!
+
+###Code Coverage
+How much percentage of your source code is covered by unit tests?
+
+####Example
+http://www.sonarqube.org/manage-code-coverage-by-unit-tests-with-sonar/
+
+####Why is it important?
+- Unit Testing is one of the most important modern development practices.
+- Good Unit Tests are there for ever! They catch defects in future!
+- Systems with good unit tests improve over a period of time! Developers are not worried about breaking functionality. So, they continuously refactor!
+
+####Challenges
+ - Not having proper asserts
+ - Writing tests just for coverage!
+ - Certains parts of the applications are not designed for unit testing
+  - Old frameworks - Web and database especially
+
+####How to measure?
+- SONAR
+- Eclipse - Cobertura and EclEmma plugins
+- Inbuilt in Intellij
+
+####Best Practices
+- Have Code Coverage as part of Definition of Done
+- Measure Code Coverage from day one of the project!
+
+####Related Topics
+Unit Testing
+Dependency Injection
+In memory databases
+
+
+
+
 
 Copy Again~~~~~~~~~~~~~~~~~~~~~~
 ###Topic
