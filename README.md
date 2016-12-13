@@ -928,6 +928,312 @@ Spring support for HATEOAS (Hypermedia as Representation of Application State) h
 ####Course
 
 
+###Cloud
+
+####Video
+Coming Soon
+
+####What
+- Dynamic provisioning of resources (computing, network, servers, applications) on need.
+
+####Why
+- Imagine a startup. Do you know how fast you will grow?
+- Imagine a shopping company. Do you really need all the infrastructure you bought planning for the peak period (Black Friday, Holiday Season) during the lean periods of the year?
+- Imagine applications for businesses have a year end peak period. What would the infrastructure be doing rest of the year?
+
+####Types
+- Private
+- Public
+
+####Advantages
+- Agility 
+- Cost reductions
+- Scalability and elasticity 
+- Reliability
+
+####How
+- Make sure your applications are Cloud Native
+- Choose a platform
+ - Microsoft Azure
+ - AWS
+ - Google's Cloud Platform 
+
+####Best Practices
+- 12 factor apps
+
+####Challenges
+- Security
+- Application Compatibility 
+
+####What Else?
+- IaaS (Infrastructure as a Service)
+- PAAS (Platform as a Service)
+- SAAS (Software as a Service)
+
+###Big Data
+
+####Video
+Coming Soon
+
+####What
+- Large volumes of data
+ - Few dozen terabytes to many petabytes of data
+- Data Sources
+ - Social Networking - Facebook, Twitter
+ - Cameras
+ - Software Logs
+
+####Why
+- Faster, more intelligent decisions
+- Business Trends
+
+####How
+- Different Parts
+ - Capture
+ - Storage & Transfer
+ - Search
+ - Analysis
+ - Visualization
+
+####Example
+The Apache Hadoop software library is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. Rather than rely on hardware to deliver high-availability, the library itself is designed to detect and handle failures at the application layer, so delivering a highly-available service on top of a cluster of computers, each of which may be prone to failures.
+Modules
+- Hadoop Common: The common utilities that support the other Hadoop modules.
+- Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.
+- Hadoop YARN: A framework for job scheduling and cluster resource management.
+- Hadoop MapReduce: A YARN-based system for parallel processing of large data sets
+
+###Microservices
+
+####Video
+Coming Soon
+
+####What
+- Keep it Small - Small methods, Small classes, Small Components, Small Services, Small Deployable Units. 
+- Microservices are another step in the direction of “Keep it Small”. Fundamental change is to keep the deployable unit small.
+
+####Why
+- Many organizations found that embracing fine-grained, microservice architectures enable delivering software faster and adapt to new technologies. 
+- Evolved from on the ground experiences at Netflix, eBay, Amazon, Groupon
+
+####Characteristics
+- Small, Lightweight
+- Loosely coupled service-oriented architectures with bounded contexts
+- Bounded Scope, Limited Scope, Solve one problem well
+- Interoperable with message based communication
+- Independently deployable and testable services
+- Building systems that are replaceable over being maintainable
+- Smart endpoints and dump pipes
+ 
+####When
+- When you are having problems taking your releases live!
+
+####Advantages
+- Faster Time To Market
+- Experimentation and Speed of innovation
+- Team Autonomy
+- Independent Teams
+- Scaling
+- High Tuning Ability
+
+####Challenges
+- Identifying the right bounded contexts
+- Challenges due to change in thinking towards event driven architectures
+- Increased need for Automation
+- More complex Monitoring & Application health management
+- Fault Isolation
+ - Correlation Ids
+- Eventual Consistency through Standardization
+ - Need to decide what you want to standardize and what you do not want to standardize.
+
+####Microservices vs SOA
+SOA started with similar aims. Let’s highlight a couple of significant differences.
+- However, as time passed, SOA is characterized by large product based implementations arounds ESBs. These ESBs became the magnet for all business logic and over a period of time became the bottleneck. 
+- Microservices approach place additional focus on microservices being autonomous and independently deployable.
+
+####What Else?
+- Spring Boot
+- Spring Cloud
+
+###Cloud Native Applications
+
+####Video
+Coming Soon
+
+####What
+Applications which are easily deployable on cloud.
+
+####Challenges
+- Visibility
+- Fault Isolation
+- Fault Tolerance
+- Automated Recovery
+
+####Other useful stuff 
+- DevOps
+- Continuous Delivery
+- Microservices - Bounded Context & Choreography
+- Containerization
+
+####Best Practices
+- 12 factors app
+ - Codebase - One codebase tracked in revision control, many deploys
+ - Dependencies - Explicitly declare and isolate dependencies
+ - Config - Store config in the environment
+ - Backing services - Treat backing services as attached resources
+ - Build, release, run - Strictly separate build and run stages
+ - Processes - Execute the app as one or more stateless processes
+ - Port binding - Export services via port binding
+ - Concurrency - Scale out via the process model
+ - Disposability - Maximize robustness with fast startup and graceful shutdown
+ - Dev/prod parity - Keep development, staging, and production as similar as possible
+ - Logs - Treat logs as event streams
+ - Admin processes - Run admin/management tasks as one-off processes
+
+###12 Factor App
+A methodology for building modern, scalable, maintainable software-as-a-service apps. Originated from developers at Heroku.
+
+####Video
+Coming Soon
+
+####What
+- Best practices for Cloud native applications.
+
+####How
+- 12 factors app
+ - Codebase - One codebase tracked in revision control, many deploys
+ - Dependencies - Explicitly declare and isolate dependencies
+ - Config - Store config in the environment
+ - Backing services - Treat backing services as attached resources
+ - Build, release, run - Strictly separate build and run stages
+ - Processes - Execute the app as one or more stateless processes
+ - Port binding - Export services via port binding
+ - Concurrency - Scale out via the process model
+ - Disposability - Maximize robustness with fast startup and graceful shutdown
+ - Dev/prod parity - Keep development, staging, and production as similar as possible
+ - Logs - Treat logs as event streams
+ - Admin processes - Run admin/management tasks as one-off processes
+
+####Related Topics
+- Cloud Native Applications
+
+###Micro Frontend
+Microservices With Front-End
+
+####Video
+Coming Soon
+
+####Why
+- Backend teams can't deliver business value without the frontend being updated
+- Needs communication between frontend and backend teams
+ 
+####What
+A new approach to developing microservices, with both front-end and back-end included.
+
+####Advantages
+- Easy to take live - since only one microservice needs to be deployed
+- One team works end to end!
+
+####Challenges
+- How to make sure that the individual frontends are consistent. Common Framework is an option. However the risk is the coupling a common framework might create
+- Different UIs for different devices - Computer, Mobile, iPad etc.. 
+
+###HATEOAS
+
+####Video
+Coming Soon
+
+####What
+- Hypermedia as the Engine of Application State. 
+- One of the important constraints of REST application architecture. 
+- Any REST service should include contextual hypermedia links with the response.
+
+####Example
+```
+{
+  "_embedded" : {
+    "todos" : [ {
+      "user" : "Jill",
+      "desc" : "Learn Hibernate",
+      "done" : false,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/todos/1"
+        },
+        "todo" : {
+          "href" : "http://localhost:8080/todos/1"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/todos"
+    },
+    "profile" : {
+      "href" : "http://localhost:8080/profile/todos"
+    },
+    "search" : {
+      "href" : "http://localhost:8080/todos/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
+```
+
+XML Example
+```
+<?xml version="1.0"?>
+<account>
+   <account_number>12345</account_number>
+   <balance currency="usd">100.00</balance>
+   <link rel="deposit" href="https://somebank.org/account/12345/deposit" />
+   <link rel="withdraw" href="https://somebank.org/account/12345/withdraw" /> 
+   <link rel="transfer" href="https://somebank.org/account/12345/transfer" />
+   <link rel="close" href="https://somebank.org/account/12345/close" />
+ </account>
+```
+####Why
+- Less Coupling with URI Structures
+
+####Related Topics
+- HAL (Hypertext Application Language) is a simple format that gives a consistent and easy way to hyperlink between resources in your API.
+- Resources have:
+ - Links
+ - Embedded Resources - other resources contained within them
+ - State - the actual resource data
+- Links have:
+ - A target (a URI)
+ - A relation (a name)
+
+Example
+``` 
+{
+    "links": {
+        "self": { "href": "http://api.com/items" },
+        "item": [
+            { "href": "http://api.com/items/1" },
+            { "href": "http://api.com/items/2" }
+        ]
+    "data": [
+            {"itemName":"a"}, 
+            {"itemName":"b"} 
+     ] 
+}
+```
+###Functional Programming
+Should be driven with an Example!
+
+###Reactive Programming
+Should be driven with an Example!
+
+###In Memory Database
+Should be driven with an Example!
 
 Copy Again~~~~~~~~~~~~~~~~~~~~~~
 ###Topic
