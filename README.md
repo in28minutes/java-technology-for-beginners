@@ -1514,13 +1514,91 @@ In Contract First approach we agree on the contract for the service first. We wr
 - Create Service Consumer
 
 #### How it works
-Request/Response | Client Side | -- | Server Side
------------- | ------------- | ------------- | ------------- 
-Request | (1)Java Object => SOAP Request XML | ----> | (2)SOAP Request XML => C# Object
-Response | (4)Java Object <= SOAP Response XML | <--- | (3)SOAP Response XML <= C#Object
+Request/Response  Client Side	                        Server Side
+Request           (1)Java Object => SOAP Request XML ----o------->  (2)SOAP Request XML => C# Object
+Response           (4)Java Object <= SOAP Response XML <----o----- (3) SOAP Response XML <= C#Object
 
-- Structure of Request and Response XML are defined in XML
-- Frameworks like JAXB can convert object to xml and xml to object with WSDL as input
+- Structure of Request and Response XML are defined in WSDL
+- Converting Java object to SOAP xml. This is called Marshalling.
+- Converting SOAP xml to Java object. This is called Unmarshalling.
+JAXB and XMLBeans are frameworks which enable use to do marshalling and unmarshalling easily.
+
+####Security
+- At transport level, SSL is used to exchange certificates (HTTPS). This ensures that the server (service producer) and client (service consumer) are mutually authenticated. It is possible to use one way SSL authentication as well.
+- At the application level, security is implemented by transferring encrypted information (digital signatures, for example) in the message header (SOAP Header). This helps the server to authenticate the client and be confident that the message has not been tampered with.
+
+####Demo
+- Let run a web service and call it using Postman?
+
+###REST Web Services
+- There are a set of architectural constraints called REST Constraints. Any service which satisfies these constraints is called RESTful Web Service.
+- There are a lot of misconceptions about REST Web Services : They are over HTTP , based on JSON etc. Yes : More than 90% of RESTful Web Services are JSON over HTTP. But these are not necessary constraints. We can have RESTful Web Services which are not using JSON and which are not over HTTP.
+
+#### RESTful Constraints
+The five important constraints for RESTful Web Service are
+- Client-Server : There should be a service producer and a service consumer.
+- The interface (URL) is uniform and exposing resources. Interface uses nouns (not actions)
+- The service is stateless. Even if the service is called 10 times and there is no change in the state of the resource, the result must be the same.
+- The service response should be Cacheable. 
+- Client should not assume direct connection to server - it might be getting info from a middle layer - cache.
+
+#### What is HTTP?
+- HTTP is the protocol to exchange or transfer hypertext.
+- Request–Response protocol
+- HTTP Request - The request message consists of the following:
+ - A request line with request method and URI (e.g., GET /images/logo.png HTTP/1.1, which requests a resource called /images/logo.png from the server).
+ - Request header fields (e.g., Accept-Language: en).
+ - An optional message body.
+- HTTP Response - The response message consists of the following:
+ - A status (e.g., HTTP/1.1 200 OK).
+ - Response header fields (e.g., Content-Type: text/html).
+ - An optional message body.
+
+- HTTP methods: indicate the desired action to be performed on the identified resource. GET, POST, PUT, PATCH, DELETE among a host of others.
+- Different HTTP Status Codes
+
+#### Applying RESTful Constraints to HTTP web services
+- While designing any API, the most important thing is to think about the api consumer i.e. the client who is going to use the service. What are his needs? Does the service uri make sense to him? Does the request, response format make sense to him?
+- Always use HTTP Methods. Best practices with respect to each HTTP method is described below:
+ - GET : Should not update anything. Should be idempotent (same result in multiple calls). Possible Return Codes 200 (OK) + 404 (NOT FOUND) +400 (BAD REQUEST)
+ - POST : Should create new resource. Ideally return JSON with link to newly created resource. Same return codes as get possible. In addition : Return code 201 (CREATED) is possible.
+ - PUT : Update a known resource. ex: update client details. Possible Return Codes : 200(OK) 
+ - DELETE : Used to delete a resource.
+- Have properly structure URIs. URI’s should be hierarchical and as self descriptive as possible. Prefer plurals.
+ - Friends List - GET /users/Ranga/friends
+ - Add a Friend - POST  /users/Ranga/friends
+ - Get details about a specific friend - GET /users/Ranga/friends/Ravi
+
+#### Implementation Approaches in Java
+- JAX RS
+- Spring MVC
+
+#### JAX-RS
+JAX-RS is the JEE Specification for Restful web services implemented by all JEE compliant web servers (and application servers). Important Annotations
+- @ApplicationPath("/"). @Path("users") : used on class and methods to define the url path.
+- @GET @POST : Used to define the HTTP method that invokes the method.
+- @Produces(MediaType.APPLICATION_JSON) : Defines the output format of Restful service.
+- @Path("/{id}") on method (and) @PathParam("id") on method parameter : This helps in defining a dynamic parameter in Rest URL. @Path("{user_id}/followers/{follower_id}") is a more complicated example.
+- @QueryParam("page") : To define a method parameter ex: /users?page=10.
+Useful methods:
+- Response.OK(jsonBuilder.build()).build() returns json response with status code.
+- Json.createObjectBuilder(). add("id",user.getId()); creates a user object.
+
+#### Document REST Services
+- Swagger
+- Restdocs
+
+#### Richardson Maturity Model
+Richardson Maturity Model defines the maturity level of a Restful Web Service. Following are the different levels and their characteristics.
+- Level 0 : Expose SOAP web services in REST style. Expose action based services (http://server/getPosts, http://server/deletePosts, http://server/doThis, http://server/doThat etc) using REST.
+- Level 1 : Expose Resources with proper URI’s. Ex: http://server/accounts, http://server/accounts/10. However, HTTP Methods are not used.
+- Level 2 : Resources use proper URI's + HTTP Methods. For example, to update an account, you do a PUT to . The create an account, you do a POST to . Uri’s look like posts/1/comments/5 and accounts/1/friends/1.
+- Level 3 : HATEOAS (Hypermedia as the engine of application state). You will tell not only about the information being requested but also about the next possible actions that the service consumer can do. When requesting information about a facebook user, a REST service can return user details along with information about how to get his recent posts, how to get his recent comments and how to retrieve his friend’s list.
+
+#### Demo
+- Show case a Spring MVC Based REST Service
+- Show case HATEOAS
+- Show case Swagger Documentation
 
 Copy Again~~~~~~~~~~~~~~~~~~~~~~
 ###Topic
