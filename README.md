@@ -1595,6 +1595,12 @@ Richardson Maturity Model defines the maturity level of a Restful Web Service. F
 - Level 2 : Resources use proper URI's + HTTP Methods. For example, to update an account, you do a PUT to . The create an account, you do a POST to . Uri’s look like posts/1/comments/5 and accounts/1/friends/1.
 - Level 3 : HATEOAS (Hypermedia as the engine of application state). You will tell not only about the information being requested but also about the next possible actions that the service consumer can do. When requesting information about a facebook user, a REST service can return user details along with information about how to get his recent posts, how to get his recent comments and how to retrieve his friend’s list.
 
+#### Best Practices
+- Have a RESTful api standard across organization- YARAS
+ - Message and URI Layout, HATEOAS, Sorting, Filtering, Pagination
+- Use HATEOAS where possible
+- Have Great Unit Tests!
+
 #### Demo
 - Show case a Spring MVC Based REST Service
 - Show case HATEOAS
