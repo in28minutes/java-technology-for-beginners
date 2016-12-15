@@ -1514,9 +1514,10 @@ In Contract First approach we agree on the contract for the service first. We wr
 - Create Service Consumer
 
 #### How it works
-Request/Response  Client Side	                        Server Side
-Request           (1)Java Object => SOAP Request XML  ---o------->  (2)SOAP Request XML => C# Object
-Response           (4)Java Object <= SOAP Response XML <----o-----  (3) SOAP Response XML <= C#Object
+Request/Response | Client Side | -- | Server Side
+------------ | ------------- | ------------- | ------------- 
+Request | (1)Java Object => SOAP Request XML | ----> | (2)SOAP Request XML => C# Object
+Response | (4)Java Object <= SOAP Response XML | <--- | (3)SOAP Response XML <= C#Object
 
 - Structure of Request and Response XML are defined in XML
 - Frameworks like JAXB can convert object to xml and xml to object with WSDL as input
