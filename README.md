@@ -1385,7 +1385,141 @@ Make your choice
 ###Tech Design
 - Lets not worry about it!
 
+###Evolutionary Design
+In water fall model, we followed an approach where we architected and designed the entire system before we started coding. Evolution Design is using a combination of good tests and high level architecture base to drive you to a good design. You apply basic design principles (4 Principles of Simple Design) and continuously refactor your code ensuring good design emerges. Uses an iterative approach.
+At each pass - add, refactor and test 
 
+####Advantages
+- Avoids over design
+- Avoids designing for some future feature which never materializes
+- Continuous & Immediate feedback as we are not waiting for all design to complete before we deliver value to customer
+
+####Challenges
+- Need clear separation between Design and Architecture
+- Need skilled and experienced developers/architects to guide and govern
+- Needs Continuous Integration
+- Needs high focus on tests. If tests are not good, design cannot evolve as developers are reluctant to make changes!
+
+####Best Practices
+- Use TDD
+- Use Continuous Integration
+
+####How to Learn?
+- Good Question. Experience it to learn it. Pair with Good Programmers.
+
+###Code First
+When we develop any service, we have two approaches
+- Code First
+- Contract First
+
+In Code First approach we write the code for the service first and generate the contract for the service from code!
+
+####Examples 
+Swaggerizing Spring Boot Services
+Generating WSDL from Web Service Code
+
+####Demo
+Exposing Swagger contract from REST Services
+
+####Advantages
+- Does not need additional effort to create the contract!
+- Contract and Code always in sync!
+
+####Disadvantages
+- Makes it difficult to develop in parallel!
+- Teams do not know the target! As contract is not agreed ahead of time, teams might make more changes than necessary.
+- In old frameworks, sometimes the generated contract was not compatiable across platforms!
+- How do we support versioning?
+
+####Move from WSDL to JSON REST Services
+- Makes it more difficult to make a choice
+- Tools are evolving. Today some of the disadvantages of Code First have alternatives. 
+
+###Contract First
+When we develop any service, we have two approaches
+- Code First
+- Contract First
+
+In Contract First approach we agree on the contract for the service first. We write code based on the contract.
+
+####Advantages
+- Teams can develop in parallel!
+- Teams know what to expect. Can use some stub framework to mock the service based on the contract.
+- Cross Platform Compatible
+- Enables reuse of Schemas
+
+####Disadvantages
+- Some initial additional effort
+- Needs some effort to ensure that the updated contracts are shared as when needed
+
+####Move from WSDL to JSON REST Services
+- Makes it more difficult to make a choice
+- Tools are evolving. Today some of the disadvantages of Code First have alternatives. 
+
+###Web Service
+- Everything on the web is a web service! 
+- Fundamental to SOA and Microservice approaches.
+
+####Example
+- You send a request to Google.com. Google.com responds with HTML. Browser renders it.
+![Example Web Service](http://3.bp.blogspot.com/-RSSyK3JhGhw/VVTOQyaX2jI/AAAAAAAAAL8/BZL6jYEZXL4/s640/WebService_BrowserGoogle.png)
+
+####Some Terminologies
+- Service Provider : Google.com is the service provider. Handles the request and sends a response back.
+- Service Consumer : Browser is the service consumer. Creates Request. Invokes Service. Processes the Response.
+- Data Exchange Format : In this example, Data Exchange is done over HTTP protocol. Request is HTTP request and Response is HTTP Response. Data exchange format can be something else as well. XML (in case of SOAP web services) and JSON (most RESTful services).
+- Contract : Agreement to the definition of a service.
+
+####Types of Webservices
+- SOAP : Simple Object Access Protocol
+- REST : RESTful Web services
+
+####Advantages
+- Re-use : Web services avoid the need to implement business logic repeatedly. If we expose a web service, other applications can re-use the functionality
+- Modularity : For example, tax calculation can be implemented as a service and all the applications that need this feature can invoke the tax calculation web service. Leads to very modular application architecture.
+- Language Neutral : Web services enable communication between systems using different programming languages and different architectures. For example, following systems can talk with each other : Java, .Net, Mainframes etc.
+- Web Services are the fundamental blocks of implementing Service Oriented Architecture in an organization.
+
+####Approaches to developing web services
+- Contract First vs Code First
+- SOAP vs REST
+ - REST is winning the race. Lightweight. With JSON, more options for consumers.
+- HTTP vs JMS vs AMQP vs...
+ - As we move towards Microservices with event driven architectures, AMQP is getting more popular as a means of programming language neutral asynchronous communication approach. 
+- Defining Contracts
+ - WSDL for SOAP Services
+ - Swagger/RestDocs for RESTful JSON Services
+
+####Best Practices
+- Keep your contracts programming language neutral
+- Follow contract first
+- JSON based RESTful services are emerging as a popular approach. They are lightweight and consumable from browser and mobile apps.
+
+####Demo
+- Let run a web service and call it using Postman?
+
+### SOAP Web Services
+- Refer web service section above for understanding what a web service is.
+- In SOAP web services, data exchange (request and responses) happens using SOAP format. SOAP is based on XML.
+
+####SOAP
+- SOAP is a platform independent messaging protocol. Allows communication between disparate operation systems. For example, a system using Windows can talk to as sytem using UNIX using services built using SOAP protocol.
+- SOAP format defines a SOAP-Envelope which envelopes the entire document. SOAP-Header (optional) contains any information needed to identify the request. Also, part of the Header is authentication, authorization information (signatures, encrypted information etc). SOAP-Body contains the real xml content of request or response.
+- All the SOAP web services use this format for exchanging requests and responses. In case of error response, server responds back with SOAP-Fault.
+![SOAP Web Services](http://4.bp.blogspot.com/-DyySh3d6XUs/VVTOTSlv3RI/AAAAAAAAAMQ/MGYhbgtYuo4/s640/WebService_SoapMessge.png)
+
+####Steps in creating a SOAP Web Service
+- Define a Contract
+- Create Service Provider
+- Create Service Consumer
+
+#### How it works
+Request/Response  Client Side	                        Server Side
+Request           (1)Java Object => SOAP Request XML  ---o------->  (2)SOAP Request XML => C# Object
+Response           (4)Java Object <= SOAP Response XML <----o-----  (3) SOAP Response XML <= C#Object
+
+- Structure of Request and Response XML are defined in XML
+- Frameworks like JAXB can convert object to xml and xml to object with WSDL as input
 
 Copy Again~~~~~~~~~~~~~~~~~~~~~~
 ###Topic
