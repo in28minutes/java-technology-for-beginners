@@ -1606,6 +1606,354 @@ Richardson Maturity Model defines the maturity level of a Restful Web Service. F
 - Show case HATEOAS
 - Show case Swagger Documentation
 
+### Static Code Analysis 
+- Isn't this already done?
+
+### Vertical Slice
+- We want to build a large application talking to multiple services. When we start developing an application, we want to lay down the architecture  and design, set up frameworks, integrate them and setup unit testing.
+- Vertical Slice can be a small use case which ensures all layers are involved
+ - Database
+ - External Services
+
+####Why?
+- Vertical Slice is used to identify and solve technology risks at the very start of a project. 
+- Vertical Slice acts as a reference for other developers as they start building more stuff. 
+
+####Best Practices
+- Ensure that Static Analysis is in place in parallel and Vertical Slice adheres to all standards
+- Ensure that continuous integration is in place.
+- Do developers need trainings on the frameworks?
+
+####Challenges
+- Identify the right use case for the vertical slice! Usually choose a relatively complex use case!
+
+###Internationalization or Localization or i18n 
+Customizing an application for use in different locations and languages - for different Locales!
+
+####Why?
+- You don't want 100 applications for 100 Locales
+
+#### How to implement Internationalization?
+- Lets take a quick demo of implementing it with Spring MVC!
+
+#### Challenges
+- Sometimes data from database tables need to be internationalized. This needs a custom solution. 
+
+####Best Practice
+Build it in from the first day. Should be part of vertical slice usually.
+
+###Transaction Management
+- Already done!
+
+###Non Functional Requirements NFRs
+Requirements which are not typically specified as part of how application should behave
+- Authentication and Authorization
+- Performance
+- Scalability
+- Availability
+- Resilience
+- Maintainability
+- Portability
+- Security
+
+####Best Practices
+- Have clearly stated non functional requirements
+- Build vertical slices where-ever possible to eliminate most important non functional risks - scalability or performance
+ - Will the framework be able to withstand a specific load?
+- Check for Security from start of the project.
+- Use Static Analysis from start of the project.
+- Use Secure Code Static Analysis tools from start of the project.
+ 
+####Challenges
+- Sometimes you do not know the target for non functional requirement? What if your app becomes more popular than what you expect?
+
+###Authentication and Authorization
+- Authentication: Are you who you state you are?
+- Authorization: Do you have access to the specific resource or functionality?
+
+####Best Practices
+- Use HTTPS - SSL
+- Use Standard Frameworks - Spring Security
+- Authorization: Have a clear framework. Check before performing action. Best way to implement is to use Filters
+- Use Server Side Validations.
+- Don't re-invent the wheel.
+- Don't allow your access tokens to last forever.
+- Don't store access tokens or passwords in plaintext.
+- Build visibility into volumes of authentication failures.
+- Do not use Basic Authentication
+- Use secure cookies only
+
+###Performance
+How fast is your application?
+
+####Best Practices
+- Have clear performance objectives
+- Make the right architecture choice for your needs
+ - If needed, implement a vertical slice quickly to test performance
+- Measure Early
+- Use Load Tests early in the cycle
+- NO premature optimizations. Any optimization decision should be based on numbers or past experience. In Donald Knuth's paper "Structured Programming With GoTo Statements", he wrote: "Programmers waste enormous amounts of time thinking about, or worrying about, the speed of non critical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%."
+- Session size - Small
+- Implement Caching where ever possible
+- Create necessary Indexes on Database. Collect Statistics and Remove unnecessary data
+- In critical parts - write unit tests for performance.
+- Java Specific
+ - Set initial size on Collections
+ - Be conscious about create as few objects as possible. Especially in loops.
+ - Avoid String Concatenation
+ - Eliminate Obselete Object References
+ - Close connections and Streams
+ 
+### Scalability
+- Will your system handle more load if you give it more resources?
+- "A system whose performance improves after adding hardware, proportionally to the capacity added, is said to be a scalable system."
+- If supporting X users needs Y resources, will I be able to support 2X users or better with 2Y resources?
+
+####Types
+- Horizontal : Add more nodes to cluster. Now popular with the cloud bringing in new possibilities.
+- Vertical : Add resources to the current node. Increase main memory, for example.
+- Comparison
+ - There are limits to how much you can scale vertically.
+ 
+####Notes
+- Usually databases become the bottleneck in large systems.
+
+####Best Practices
+- Have clear scalability targets
+- Test Early
+- Be wary of typical bottlenecks - Things which are difficult to scale horizontally
+ - Load balancers
+ - Databases (Do not have a large database! Try splitting up databases! Transaction database, Reporting database. See if you can have as small databases as possible)
+ - Large Monolithic Application (difficult to deploy!)
+- Caching can improve scalability
+ - Static Resources
+ - Configuration Data
+ - User Data
+ - Service Responses
+- Think of a Distribute Cache
+- Build visibility and build alerts
+- Build cloud native microservice based applications and make use of the cloud!
+
+###Availability
+- Proportion of time that the system is functional and working
+- Downtime can be caused by
+ - Software Errors
+ - Infrastructure Problems
+ - Denial of Service Attacks
+ - High Load
+- Examples
+ - High load on database
+ - A server crash because of a bug in code
+ 
+####Best Practices
+- Build Redundancy
+- Identify possible bottlenecks or choke points and plan to reduce them
+- Install Security Updates of Operating System and Software
+- Load Test with real time loads
+- Have proper exception handling 
+- Have Automated Visibility to detect unusual patterns.
+- Validate data on the Server
+
+###Resilience
+- How does your system respond in case of a failure of a specific component or a service?
+- Can it provide reduced set of functionality instead of completely breaking down?
+- Especially important in the world of microservices. Things become more distributed increasing the chances of failure
+- Will the entire amazon.com be down if product recommendations service is down?
+
+####Best Practices
+- Always think what if a service is down?
+- Test for service failures. Switch off a service and see how the system reacts
+- Use Circuit Breaker Frameworks like Hystrix
+
+###Maintainability
+- How is easy is it to make changes to your system?
+
+####Questions to ask?
+- How frequently do things break when you make a change?
+- How many defects come as a result of changes?
+- How much effort does it take to make a change?
+
+####Best Practices
+- Coding Standards, Static Code Analysis and Peer Reviews
+- Loose Coupling and High Cohesion
+ - Proper Layering
+- Small Applications compared to Monoliths
+- Continuous Integration
+- Automation Testing - Unit Testing and Integration Testing
+- Sufficient Documentation
+
+###Portability
+- How easy is it to move other Language, Database, Framework or a Platform?
+ - How easy can you move from Hibernate to other framework? JPA
+ - How easy can you move from Websphere to Weblogic? Adhere to JEE standards
+ - How easy to move from Windows to Unix? If you have a java based application, you already made a good start
+ - How easy is to move from Oracle to mySql? Are you adhering to Ansi SQL Standards? Are you using any Oracle specific features?
+ 
+###Testability
+- How easy is to test parts/components of your application?
+
+####Best Practices
+- Avoid Monoliths
+ - Too much business logic. Too difficult to test.
+- Simple Design using Dependency Injection 
+ - Design for Testability
+- Agreed contacts for Services
+- Architectures build with development needs - Stubs & Mocks
+- Focus on Unit testing and Integration testing from the first day of the project
+- Use TDD and Continuous Refactoring
+
+###Security
+- Protect from unintended use! 
+ - Protect from denial of service attacks.
+ - Protect unauthorized users from gaining access
+ - Restrict authorized users access only to the specific modules or data they are supposed to access!
+
+####Principles
+- Least Priviliges : Build with security in mind from the initial project stages. Think about various user roles and accesses
+- Complete Mediation : Similar to building a security for a King's fort. One Gate through which every body has to pass through. Ex: Spring Security
+- Defence in Depth : Have Multiple levels of security.
+- Trust Nothing
+ - Validate all data into system. 
+ - Sanitise data
+- Economy of Mechanism. Keep it simple. Simple systems are easy to protect
+ - Openness of Design
+ - Opposite to "Security through Obscurity" 
+
+####Three Parts
+- Prevention
+- Detection
+- Reaction
+
+####Best Practices
+- Think of security from day one
+- Educate developers, testers, operations teams and business about the threats
+- Be aware of OWASP and their recommendations
+- Test Early
+ - Use Security Static Analysis tool
+ - Get external security testers to hack your applications!
+- OWASP
+- Have an approved software/framework/platfrom list by a Security Team
+- Use latest versions
+- Safeguard web server, app server, os & hardware. 
+ - Web sphere admin console example - Deleting default accounts & Exposing it outside enterprise.
+- Use encryption for sensitive data. One way functions. When hashing use some salt - Salt can be stored in Db for each user.
+
+###SQL Injection
+Injecting a part of query through a form field!
+
+####Other Types of Injections
+- LDAP
+- XML Xpath
+- Log
+- OS Command
+- XSS (Javascript)
+
+##### Prevention
+- Parameterised Queries
+
+### Cross Site Scription - XSS
+
+####Cause
+- Invalid Data
+ - external services
+ - databases
+ - user
+
+####Types
+- Stored : Stored in db from ui. Problem happens when info is shown to user at a later point.
+- Reflected : Dom - Untrusted data processed in JavaScript
+
+####Possible Abuse
+- Stealing Session Cookies
+- Page Content Rewrite
+- Logging Keystrokes
+
+####Solutions
+- Validate untrusted data
+- Encode all data - even trusted data
+- Encoding should be contextual
+ - CSS
+ - HTML
+ - JS
+- Ideally contextual encoding should be built into the frameworks
+- Use JSTL & Other tag libraries
+- Use Content Security Policy
+- XSS Prevention Cheat Sheet
+
+### Insecure Direct Object References
+User changes link on the browser from resource he has access to to one which he has no access to
+- /account/123 to /account/125
+- especially vulnerable if the reference appears in url
+
+####Prevention
+- Proper Authorization using Mediation - Filters
+- Use object references in urls
+- Avoid predictability of urls
+
+####Insufficient Transport Layer Security
+- things that can be compromised in non secure request
+ - passwords
+ - session ids
+ - Other sensitive data on page
+
+####Prevention
+- Use TLS
+ - All elements on page should use TLS
+  - Popups
+  - Other websites we redirect to
+- Possibility of sending session id cookie insecurely to a NON https website redirect
+- Use Secure Cookies : Mark cookies as secure. These are sent only to secure (https) websites
+- Use Trusted Certificates
+- Reissue session tokens when switching between secure and insecure website pages
+
+###Cross Site Request Forgery (CSRF)
+Reuse of an user's existing session on a banking website on a forum to fire a unauthorised url or ajax request
+ - I log into a banking website and go to a forum without logging out
+ - My session cookie is in my browser!! It can be abused
+
+####Prevention
+- Include an unpredictable UNIQUE token with every request called CSRF Protection token. typically a hidden form field
+- Reauthenticate user when performing significant actions
+- Use frameworks like OWASP CSRF Guard or Spring Security
+
+###Session Management
+- Http is stateless
+ - How to identify a user between subsequent requests
+
+####Mechanisms
+- Url Rewrite - Session id in url
+ - vulnerable to sniffing
+ - Url is logged in multiple places including web server logs
+ - When you visit a third party site, the url is sent as a REFERRAL URL in request header
+ - Recommendation: Use https for entire session
+- Basic Authentication : Base 64 encoded userid and password in every request
+ - Sniffing
+ - NOT RECOMMENDED
+- Cookies
+ - Use domain : which hosts should this cookie be sent to path
+ - Use expiration date
+ - Mark as secure : sent only to https websites
+ 
+###Missing Function Level Access Controls
+Improper Authorization
+ - Complete Mediation Principle
+ - Filters or interceptors
+ - Have well defined roles
+
+####Exploitation
+- Changing url in browser
+- Firing AJAX Requests
+
+### Containerization
+- OS level virtualization technology
+ - Shares the host operating system kernel  
+ - No dedicated operating system 
+
+#### Advantages
+- Lightweight 
+- High performance
+- TODO MORE
+
 Copy Again~~~~~~~~~~~~~~~~~~~~~~
 ###Topic
 ####Video
