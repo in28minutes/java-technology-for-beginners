@@ -160,12 +160,20 @@ If you have a great video for one of these topics, which does not have a video a
 - Containerization
 
 ## Java EE
+- http://www.oracle.com/technetwork/java/javaee/tech/index.html
+- Batch Applications for the Java Platform - JSR 352
+- Contexts and Dependency Injection for Java 1.1 - JSR 346
+- Dependency Injection for Java 1.0 - JSR 330
+- Java Persistence 2.1 - JSR 338
+- Java Message Service API 2.0 - JSR 343
+- Java Transaction API (JTA) 1.2 - JSR 907
+- Java API for RESTful Web Services (JAX-RS) 2.0 - JSR 339
+- Java API for XML-Based Web Services (JAX-WS) 2.2 - JSR 224
+- Java Authentication Service Provider Interface for Containers 1.1 - JSR 196
+- Java Architecture for XML Binding (JAXB) - JSR 222
+- Java Database Connectivity 4.0 - JSR 221
+- Java Management Extensions (JMX) 2.0 - JSR 003
 - JSTL
-- JPA
-- JAX-RS
-- JAX-WS
-- JAXB
-- JMS
 
 ## Design
 - Design Patterns
