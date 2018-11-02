@@ -10,7 +10,7 @@ If you have a great video for one of these topics, which does not have a video a
 ## Presentation Template
 - https://app.mindmup.com/map/_free/ff0bce00baa611e6ae8525496545fc76
 
-### Some of our amazing courses
+### Some of our Best Selling Courses
 [![Image](https://www.in28minutes.com/course-promotional-images/Java-Programming-for-Complete-Beginners-in-250-Steps.png "Java 9 Programming for Complete Beginners in 250 Steps
 ")](https://www.udemy.com/java-programming-tutorial-for-beginners/?couponCode=LEARN-2019)
 
@@ -2011,7 +2011,7 @@ Coming Soon
 ##### Security
 #### Course
 
-### Some of our amazing courses
+### Some of our Best Selling Courses
 [![Image](https://www.in28minutes.com/course-promotional-images/Java-Programming-for-Complete-Beginners-in-250-Steps.png "Java 9 Programming for Complete Beginners in 250 Steps
 ")](https://www.udemy.com/java-programming-tutorial-for-beginners/?couponCode=LEARN-2019)
 
