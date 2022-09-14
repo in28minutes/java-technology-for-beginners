@@ -11,7 +11,7 @@ If you have a great video for one of these topics, which does not have a video a
 ## Presentation Template
 - https://app.mindmup.com/map/_free/ff0bce00baa611e6ae8525496545fc76
 
-## Keep Learning Every Day**
+## Keep Learning Every Day
 - **1:** [FOLLOW](https://links.in28minutes.com/lin) Ranga on LinkedIn
 
 ## Check Out Our Amazing ROADMAPS
